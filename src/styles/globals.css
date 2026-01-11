@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --re-blue: #1e5aa0;
+  --re-blue-dark: #164578;
+  --re-blue-light: #e8f0f8;
+  --re-green: #2d9d4f;
+  --re-green-light: #e6f5eb;
+  --re-yellow: #f0a500;
+  --re-yellow-light: #fef7e5;
+  --re-orange: #e85d04;
+  --re-orange-light: #fef0e7;
+}
+
+@layer base {
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  
+  body {
+    @apply bg-gray-50 text-gray-900 antialiased;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-re-blue text-white px-6 py-3 rounded-full font-semibold 
+           hover:bg-re-blue-dark transition-colors duration-200 
+           shadow-md hover:shadow-lg;
+  }
+  
+  .btn-secondary {
+    @apply bg-white text-gray-700 px-6 py-3 rounded-full font-medium 
+           border border-gray-300 hover:border-gray-400 
+           transition-colors duration-200;
+  }
+  
+  .btn-outline {
+    @apply bg-white text-gray-600 px-4 py-2 rounded-full text-sm font-medium 
+           border border-gray-300 hover:bg-gray-50 
+           transition-colors duration-200;
+  }
+  
+  .status-pill {
+    @apply px-3 py-1 rounded-full text-xs font-medium;
+  }
+  
+  .status-available {
+    @apply status-pill bg-re-green-light text-re-green border border-re-green/20;
+  }
+  
+  .status-in-progress {
+    @apply status-pill bg-re-yellow-light text-re-yellow border border-re-yellow/20;
+  }
+  
+  .status-planned {
+    @apply status-pill bg-gray-100 text-gray-500 border border-gray-200;
+  }
+  
+  .card {
+    @apply bg-white rounded-xl shadow-sm border border-gray-100 p-6;
+  }
+  
+  .step-card {
+    @apply card hover:shadow-md transition-shadow duration-200 cursor-pointer;
+  }
+  
+  .input-field {
+    @apply w-full px-4 py-2 border border-gray-300 rounded-lg 
+           focus:ring-2 focus:ring-re-blue focus:border-re-blue 
+           outline-none transition-all duration-200;
+  }
+  
+  .select-field {
+    @apply input-field bg-white;
+  }
+  
+  .label {
+    @apply block text-sm font-medium text-gray-700 mb-1;
+  }
+  
+  .re-card {
+    @apply bg-white rounded-xl shadow-sm border border-gray-100;
+  }
+  
+  .re-muted {
+    @apply text-gray-500;
+  }
+  
+  .re-animated-gradient {
+    background: linear-gradient(
+      90deg,
+      var(--re-blue) 0%,
+      var(--re-green) 25%,
+      var(--re-yellow) 50%,
+      var(--re-orange) 75%,
+      var(--re-blue) 100%
+    );
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: gradient-shift 4s ease-in-out infinite;
+  }
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
